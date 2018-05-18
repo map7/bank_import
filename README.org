@@ -1,0 +1,25 @@
+* README
+
+Bank Import feature to read in bank transactions from qif files and assign them to accounts.
+
+Things you may want to cover:
+
+** Ruby version
+
+2.5.1
+
+** System dependencies
+
+** Configuration
+
+** Database creation
+
+** Database initialization
+
+** How to run the test suite
+
+** Services (job queues, cache servers, search engines, etc.)
+
+** Deployment instructions
+
+** ...
