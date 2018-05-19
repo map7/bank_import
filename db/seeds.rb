@@ -20,9 +20,9 @@ end
 
 # Filter seed
 if Filter.count == 0
-  petrol = Account.find_by_name("Petrol")
   ["BP", "CALTEX", "7-ELEVEN", "PETROL"].each do |filter_keyword|
     petrol.filters.create(keyword: filter_keyword,
-                          account: petrol)
+                          account: Account.find_by_name("Petrol"))
   end
+
 end
