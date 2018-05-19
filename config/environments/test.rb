@@ -43,4 +43,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Load all 105 accounts
+  CHART_OF_ACCOUNTS = "chart_of_accounts.csv"
 end

@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Load all 105 accounts
+  CHART_OF_ACCOUNTS = "chart_of_accounts.csv"
 end
