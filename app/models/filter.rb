@@ -2,6 +2,12 @@ class Filter < ApplicationRecord
   belongs_to :account
 
   def self.execute(text)
+    Filter.all.each do |filter|
+      if text.match(/#{filter.phrase}/) and !filter.phrase.blank?
+        return filter.account
+      end
+    end
+
     text.split().each do |token|
       Filter.all.each do |filter|
         if token == filter.keyword
