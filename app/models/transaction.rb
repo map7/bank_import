@@ -31,8 +31,6 @@ class Transaction < ApplicationRecord
                                         debit: debit,
                                         credit: credit)
       new_transaction.save
-
-      byebug
     end
   end
   
