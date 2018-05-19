@@ -2,6 +2,8 @@ class Transaction < ApplicationRecord
   belongs_to :credit, class_name: "Account"
   belongs_to :debit, class_name: "Account"
 
+  monetize :amount_cents
+  
   def self.load(file="#{Rails.root}/test/testdata.qif")
     # Clear the db
     Transaction.delete_all
