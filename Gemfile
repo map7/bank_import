@@ -1,5 +1,7 @@
 #source 'https://rubygems.org'
-source "http://10.0.1.57:9292"
+#source "http://10.0.1.57:9292"
+source "http://gems.railscamp.local"
+
 #git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
