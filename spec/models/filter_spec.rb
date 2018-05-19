@@ -5,7 +5,6 @@ RSpec.describe Filter do
     before do 
       petrol = Account.create(code: 40, name: "Petrol")
       sundries = Account.create(code: 999, name: "Sundries")
-      # Filter.create(keyword: "BPAY", account: sundries)
       Filter.create(keyword: "BP", account: petrol)
     end
     
