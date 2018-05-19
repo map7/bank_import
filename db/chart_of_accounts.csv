@@ -1,0 +1,73 @@
+#
+# Chart of Accounts template
+#
+# Bare minimum set of accounts for a new ledger. 
+#
+# Code, Name
+#
+
+#
+# (40-89)		Trading Purchases
+#
+40,		Purchases/Suppliers
+41,   Petrol
+42,   Pharmacy
+43,   Food
+44,   Dining Out
+45,   Water
+46,   Internet
+47,   Rates
+48,   Electricity
+49,   Gas
+50,   Mortgage
+51,   Body Corporate
+52,   Rent
+53,   Money Owed
+54,   Online Subscriptions
+55,   Clothing
+56,   Health
+57,   Medical
+
+# BALANCE SHEET ASSETS
+# (Accounts are at the start of the range)
+#
+# (700-739) Balance Sheet Current Assets
+#
+700,	Bank Accounts							
+710,	Receivables/Debtors	     			
+720,	Other Current assets					
+730,	Stock/Inventory on hand				
+
+#
+# (740-749) Balance Sheet Investments
+#
+740,	Shares in public companies				
+741,	Shares in private companies			
+742,	Fixed Deposits	  						
+743,	Fixed Loans							
+
+#
+# FIXED ASSETS (ODD ACCOUNTS MEAN PROVISION FOR DEP'N E.G ACC 661
+#
+#
+# (750-759) Fixed Assets Plant and Equipment 
+#
+750,	Equipment								
+751,	Office Equipment						
+752,	Motor Vehicles							
+#
+# (760-769) Fixed Assets Property 
+#
+760,	Land and Buildings						
+761,	Vacant Land							
+#
+# (770-779) Fixed Assets Intangible assets 
+#
+770,	Goodwill								
+771,	Leasehold Improvements					
+
+#
+# UNASSIGNED EXPENSES
+#
+999, Sundries
+
