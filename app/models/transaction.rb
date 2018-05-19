@@ -3,6 +3,10 @@ class Transaction < ApplicationRecord
   belongs_to :debit, class_name: "Account"
 
   def self.load
+    # Clear the db
+    Transaction.delete_all
+
+    # Load the test data
     qif = Qif::Reader.new(open("#{Rails.root}/test/testdata.qif"))
     debit = Account.where(code: 700).first
     credit = Account.where(code: 999).first
