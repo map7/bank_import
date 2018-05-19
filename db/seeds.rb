@@ -17,10 +17,10 @@ CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
 end
 
 # Filter seed
-if Filter.count == 0
-  ["BP", "CALTEX", "7-ELEVEN", "PETROL"].each do |filter_keyword|
-    petrol.filters.create(keyword: filter_keyword,
-                          account: Account.find_by_name("Petrol"))
+["BP", "CALTEX", "7-ELEVEN", "PETROL"].each do |filter_keyword|
+  unless Filter.find_by_keyword(filter_keyword)
+      petrol.filters.create(keyword: filter_keyword,
+                            account: Account.find_by_name("Petrol"))
   end
-
 end
+
