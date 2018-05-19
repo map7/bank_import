@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'
+
+CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
+  # Skip any lines beginning with # as these are comments.
+  unless account[0] =~ /^#.*/ or account[0].nil?
+    Account.create(code: account[0].strip, name: account[1].strip)
+  end
+end
