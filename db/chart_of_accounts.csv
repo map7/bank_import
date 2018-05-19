@@ -34,37 +34,37 @@
 # (700-739) Balance Sheet Current Assets
 #
 700,	Bank Accounts							
-710,	Receivables/Debtors	     			
-720,	Other Current assets					
-730,	Stock/Inventory on hand				
+# 710,	Receivables/Debtors	     			
+# 720,	Other Current assets					
+# 730,	Stock/Inventory on hand				
 
-#
-# (740-749) Balance Sheet Investments
-#
-740,	Shares in public companies				
-741,	Shares in private companies			
-742,	Fixed Deposits	  						
-743,	Fixed Loans							
+# #
+# # (740-749) Balance Sheet Investments
+# #
+# 740,	Shares in public companies				
+# 741,	Shares in private companies			
+# 742,	Fixed Deposits	  						
+# 743,	Fixed Loans							
 
-#
-# FIXED ASSETS (ODD ACCOUNTS MEAN PROVISION FOR DEP'N E.G ACC 661
-#
-#
-# (750-759) Fixed Assets Plant and Equipment 
-#
-750,	Equipment								
-751,	Office Equipment						
-752,	Motor Vehicles							
-#
-# (760-769) Fixed Assets Property 
-#
-760,	Land and Buildings						
-761,	Vacant Land							
-#
-# (770-779) Fixed Assets Intangible assets 
-#
-770,	Goodwill								
-771,	Leasehold Improvements					
+# #
+# # FIXED ASSETS (ODD ACCOUNTS MEAN PROVISION FOR DEP'N E.G ACC 661
+# #
+# #
+# # (750-759) Fixed Assets Plant and Equipment 
+# #
+# 750,	Equipment								
+# 751,	Office Equipment						
+# 752,	Motor Vehicles							
+# #
+# # (760-769) Fixed Assets Property 
+# #
+# 760,	Land and Buildings						
+# 761,	Vacant Land							
+# #
+# # (770-779) Fixed Assets Intangible assets 
+# #
+# 770,	Goodwill								
+# 771,	Leasehold Improvements					
 
 #
 # UNASSIGNED EXPENSES
