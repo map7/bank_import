@@ -9,12 +9,10 @@
 require 'csv'
 
 # Accounts seed
-if Account.count == 0
-  CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
-    # Skip any lines beginning with # as these are comments.
-    unless account[0] =~ /^#.*/ or account[0].nil?
-      Account.create(code: account[0].strip, name: account[1].strip)
-    end
+CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
+  # Skip any lines beginning with # as these are comments.
+  unless account[0] =~ /^#.*/ or account[0].nil? or Account.find_by_name(account[1].strip)
+    Account.create(code: account[0].strip, name: account[1].strip)
   end
 end
 
