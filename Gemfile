@@ -70,3 +70,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'qif' # qif to read in bank statements
 gem 'table_print'
 gem 'money-rails'
+gem 'rspec-rails'
