@@ -67,7 +67,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# qif to read in bank statements
-gem 'qif'
-
+gem 'qif' # qif to read in bank statements
 gem 'table_print'
+gem 'money-rails'
