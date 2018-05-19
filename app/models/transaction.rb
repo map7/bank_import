@@ -23,7 +23,7 @@ class Transaction < ApplicationRecord
 
       # Create transaction
       new_transaction = Transaction.new(date: tran.date,
-                                        description: tran.memo,
+                                        description: (tran.memo || tran.payee),
                                         amount_cents: (tran.amount * 100),
                                         debit: debit,
                                         credit: credit)
