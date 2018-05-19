@@ -4,7 +4,7 @@ class Transaction < ApplicationRecord
 
   monetize :amount_cents
   
-  def self.load(file="#{Rails.root}/test/testdata.qif")
+  def self.load(file="#{Rails.root}/test/westpac_example.qif")
     # Clear the db
     Transaction.delete_all
 
