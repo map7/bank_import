@@ -12,23 +12,29 @@ class Transaction < ApplicationRecord
     qif = Qif::Reader.new(open(file))
 
     qif.each do |tran|
+      
+      desc = (tran.memo || tran.payee)
+      
       # Determine if it's a debit or credit
       if tran.category == "DEBIT"
         debit = Account.where(code: 700).first
-        credit = Account.where(code: 999).first
+        credit = Filter.execute(desc)
       else        
         credit = Account.where(code: 700).first
-        debit = Account.where(code: 999).first
+        debit = Filter.execute(desc)
       end
 
       # Create transaction
       new_transaction = Transaction.new(date: tran.date,
-                                        description: (tran.memo || tran.payee),
+                                        description: desc,
                                         amount_cents: (tran.amount * 100),
                                         debit: debit,
                                         credit: credit)
       new_transaction.save
+
+      byebug
     end
   end
+  
 end
 
