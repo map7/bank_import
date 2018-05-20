@@ -3,7 +3,7 @@ class Filter < ApplicationRecord
 
   def self.execute(text)
     Filter.all.each do |filter|
-      if text.match(/#{filter.phrase}/) and !filter.phrase.blank?
+      if text.match(/#{filter.phrase}/i) and !filter.phrase.blank?
         return filter.account
       end
     end
