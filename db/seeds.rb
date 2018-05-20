@@ -40,18 +40,24 @@ filters=[
          {k: "Chemist", a: 42},
 
          # 43-Food
+         {p: "AUSSIE FARMERS", a: 43},
          {k: "YOURGROCER", a: 43},
          {k: "Woolworths", a: 43},
          {p: "Hello Fresh", a: 43},
          {p: "UNIFIED THEORY", a: 43},
          {k: "FRUIT", a: 43},
+         {k: "LEMANNA", a: 43},
 
          #-44-Dining Out
          {p: "Solito Posto", a: 44},
+         {p: "FERROVIA DELI", a: 44},
+         {p: "SIAM FLAVOUR", a: 44},
+         {p: "WATERSIDE HOTEL", a: 44},
          
          #-45-Water
          
          #-46-Internet
+         {k: "INTERNODE", a: 46},
          
          #-47-Rates
          
@@ -63,6 +69,7 @@ filters=[
          #-50-Mortgage
          
          #-51-Body Corporate
+         {p: "Property r", a: 51},
          
          #-52-Rent
          
@@ -72,9 +79,12 @@ filters=[
          {k: "github.com", a: 54},
          
          #-55-Clothing
+         {k: "LOWES", a: 55},
+         {k: "BIRDSNEST", a: 55},
          {p: "BONDS AND CO", a: 55},
          
          #-56-Health
+         {k: "HIF", a: 56},
          
          #-57-Medical
          
@@ -87,7 +97,9 @@ filters=[
 
          # 60-Entertainment
          {k: "Village", a: 60},
-         {k: "Netflix.com", a: 60},
+         {k: "Netflix.com", p: "NETFLIX COM", a: 60},
+         {p: "STAN COM AU", a: 60},
+         {p: "SPOTIFY", a: 60},
 
          # 61-Technology
          {k: "AUSPI", a: 61},
