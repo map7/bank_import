@@ -15,10 +15,12 @@ class Transaction < ApplicationRecord
     return debit,credit
   end
   
-  def self.load(file="#{Rails.root}/test/westpac_example.qif")
-    # Clear the db
+  def self.clear_and_load(file)
     Transaction.delete_all
+    self.load(file)
+  end
 
+  def self.load(file="#{Rails.root}/test/westpac_example.qif")
     # Load the test data
     qif = Qif::Reader.new(open(file))
 
@@ -28,12 +30,11 @@ class Transaction < ApplicationRecord
       debit,credit = self.determine_accounts(tran.category, desc)
 
       # Create transaction
-      new_transaction = Transaction.new(date: tran.date,
-                                        description: desc,
-                                        amount_cents: (tran.amount * 100),
-                                        debit: debit,
-                                        credit: credit)
-      new_transaction.save
+      Transaction.find_or_create_by(date: tran.date,
+                                    description: desc,
+                                    amount_cents: (tran.amount * 100),
+                                    debit: debit,
+                                    credit: credit)
     end
   end
   
