@@ -9,7 +9,7 @@ class Account < ApplicationRecord
       income = acc.credit_trans.sum(:amount_cents) / 100
       expenses = acc.debit_trans.sum(:amount_cents) / 100
 
-      if expenses < 0 or income > 0
+      unless expenses == 0 and income == 0
         results << {name: acc.name, expenses: expenses, income: income}
       end
     end
