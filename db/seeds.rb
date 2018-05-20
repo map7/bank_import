@@ -47,14 +47,20 @@ filters=[
          {p: "UNIFIED THEORY", a: 43},
          {k: "FRUIT", a: 43},
          {k: "LEMANNA", a: 43},
+         {k: "foodworks", a: 43},
+         {p: "COFFEE", a: 43},
 
          #-44-Dining Out
          {p: "Solito Posto", a: 44},
          {p: "FERROVIA DELI", a: 44},
          {p: "SIAM FLAVOUR", a: 44},
          {p: "WATERSIDE HOTEL", a: 44},
+         {p: "GEORGE JONES", a: 44},
+         {k: "Menulog", a: 44},
+         {p: "healthy life", a: 44},
          
          #-45-Water
+         {k: "water", a: 45},
          
          #-46-Internet
          {k: "INTERNODE", a: 46},
@@ -65,6 +71,7 @@ filters=[
          {k: "POWERSHOP", a: 48},
          
          #-49-Gas
+         {p: "ORIGIN ENERGY", a: 49},
          
          #-50-Mortgage
          
@@ -79,12 +86,16 @@ filters=[
          {k: "github.com", a: 54},
          
          #-55-Clothing
+         {k: "MYER", a: 55},
          {k: "LOWES", a: 55},
          {k: "BIRDSNEST", a: 55},
+         {k: "donquijote", a: 55},
          {p: "BONDS AND CO", a: 55},
          
          #-56-Health
          {k: "HIF", a: 56},
+         {k: "CAPELL", a: 56},
+         {p: "HEALTH SERVICES", a: 56},
          
          #-57-Medical
          
@@ -94,21 +105,42 @@ filters=[
          
          # 59-Car Expenses
          {k: "CITYLINK", a: 59},
+         {k: "racv", a: 59},
 
          # 60-Entertainment
          {k: "Village", a: 60},
          {k: "Netflix.com", p: "NETFLIX COM", a: 60},
          {p: "STAN COM AU", a: 60},
          {p: "SPOTIFY", a: 60},
+         {p: "TICKET SOLUTIONS-OZTIX", a: 60},
 
          # 61-Technology
          {k: "AUSPI", a: 61},
+         {k: "DIGI-KEY", a: 61},
+         {k: "ELEMENT14", a: 61},
 
          # 62-Pet Expenses
          {k: "VETERINA", a: 62},
+         {k: "VETERINARY", a: 62},
 
          # 63-Bank Fees
          {k: "Fee", a: 63},
+
+         # 64-Holiday
+         {p: "CARAVAN PK", a: 64},
+
+         # 65-Alcohol
+         {p: "Dan murphy's", a: 65},
+         {p: "Dan murphys", a: 65},
+         {p: "prince wine", a: 65},
+
+         # 66,   Home Improvements and Tools
+         {k: "Bunnings", a: 66},
+
+         # 67, Pub
+         {k: "bar", a: 67},
+         {p: "welcome to thornbury", a: 67},
+         
         ]
 
 filters.each {|filter| create_filter(filter)}
