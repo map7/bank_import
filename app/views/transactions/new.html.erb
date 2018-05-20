@@ -1,9 +1,12 @@
-<%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
-  <%= f.file_field :file_paths,
-  class: "transaction-input",
-    placeholder: "Enter file paths",
-    data: {
-      target: "transactions.file_paths"
-    } %>
-  <%= submit_tag("Upload") %>
-<% end %>
+<div data-controller="transactions"> 
+  <%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
+    <%= f.file_field :file_paths,
+    class: "transaction-input",
+      placeholder: "Enter file paths",
+      data: {
+        target: "transactions.file_paths"
+      } %>
+    <%= submit_tag("Upload") %>
+  <% end %>
+  <div id="chart-1" style="height: 300px"></div>
+</div>
