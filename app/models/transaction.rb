@@ -15,7 +15,7 @@ class Transaction < ApplicationRecord
     return debit,credit
   end
   
-  def self.clear_and_load(file)
+  def self.clear_and_load(file="#{Rails.root}/test/westpac_example.qif")
     Transaction.delete_all
     self.load(file)
   end
@@ -25,14 +25,15 @@ class Transaction < ApplicationRecord
     qif = Qif::Reader.new(open(file))
 
     qif.each do |tran|
-      
+      amount_cents = (tran.amount * 100)
+      amount_cents * -1 if tran.category.length > 0
       desc = (tran.memo || tran.payee)
       debit,credit = self.determine_accounts(tran.amount, desc)
 
       # Create transaction
       Transaction.find_or_create_by(date: tran.date,
                                     description: desc,
-                                    amount_cents: (tran.amount * 100),
+                                    amount_cents: amount_cents,
                                     debit: debit,
                                     credit: credit)
     end
