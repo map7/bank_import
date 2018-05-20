@@ -3,4 +3,7 @@ class AccountSummaryController < ApplicationController
     @accounts = Account.expense_chart
     render json: @accounts
   end
+
+  def new
+  end
 end
