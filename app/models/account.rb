@@ -6,8 +6,8 @@ class Account < ApplicationRecord
   def self.summary
     results = []
     Account.all.each do |acc|
-      expenses = acc.credit_trans.sum(:amount_cents) / 100
-      income = acc.debit_trans.sum(:amount_cents) / 100
+      income = acc.credit_trans.sum(:amount_cents) / 100
+      expenses = acc.debit_trans.sum(:amount_cents) / 100
 
       if expenses < 0 or income > 0
         results << {name: acc.name, expenses: expenses, income: income}
