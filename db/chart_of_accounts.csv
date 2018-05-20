@@ -28,7 +28,12 @@
 55,   Clothing
 56,   Health
 57,   Medical
-58,   Public Transport
+58,   Transport
+59,   Car Expenses
+60,   Entertainment
+61,   Technology
+62,   Pet Expenses
+63,   Bank Fees
 
 # BALANCE SHEET ASSETS
 # (Accounts are at the start of the range)
