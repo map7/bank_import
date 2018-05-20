@@ -18,7 +18,9 @@ class Account < ApplicationRecord
 
   def self.remain(limit=10)
     sundries = Account.find_by_code(999)
-    tp sundries.credit_trans.limit(limit), :description, :amount
+    sundries.credit_trans.limit(limit).each do |tran|
+      puts "#{tran.amount}\t#{tran.description}"
+    end
     puts "Total left: #{sundries.credit_trans.count}"
   end
 end
