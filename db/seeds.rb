@@ -147,7 +147,7 @@ filters=[
          {k: "racv", a: 59},
 
          # 60-Entertainment
-         {k: "tickettek", a: 60},
+         {k: "ticketek", a: 60},
          {k: "ticketmaster", a: 60},
          {k: "Village", a: 60},
          {k: "cinema", a: 60},
@@ -170,6 +170,9 @@ filters=[
          {k: "teamviewer", a: 61},
          {k: "computers", a: 61},
          {k: "msy", a: 61},
+         {k: "linux", a: 61},
+         {k: "hobbies", a: 61},
+         {p: "little bird", a: 61},
          {k: "DIGI-KEY", a: 61},
          {k: "ELEMENT14", a: 61},
          {k: "components", a: 61},
