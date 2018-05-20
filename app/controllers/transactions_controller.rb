@@ -10,6 +10,10 @@ class TransactionsController < ApplicationController
     Transaction.load(full_path)
   end
 
+  def destroy_many
+    Transaction.delete_all
+  end
+
   def transaction_params
     params.require(:transaction).permit(:file_paths, :completed, :completed_filter)
   end
