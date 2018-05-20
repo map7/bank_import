@@ -3,8 +3,10 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "stimulus": "^1.0.1",
+    "chart.js": "^2.7.2",
+    "chartkick": "^2.3.5",
     "rails-ujs": "^5.1.4",
+    "stimulus": "^1.0.1",
     "turbolinks": "^5.0.3"
   },
   "devDependencies": {
