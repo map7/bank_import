@@ -37,6 +37,29 @@ class Transaction < ApplicationRecord
                                     credit: credit)
     end
   end
+
+  def self.refilter_common(trans)
+    bank = Account.find_by_code(700)
+
+    trans.each do |tran|
+      if tran.debit == bank
+        debit, credit = self.determine_accounts("DEBIT", tran.description)
+      else
+        debit, credit = self.determine_accounts("CREDIT", tran.description)
+      end
+
+      tran.update_attributes({debit: debit, credit: credit})
+    end
+  end
+  
+  def self.refilter
+    self.refilter_common(Transaction.all)
+  end
+
+  def self.refilter_sundries
+    self.refilter_common(Transaction.where(debit_id: Account.find_by_code(999)))
+    self.refilter_common(Transaction.where(credit_id: Account.find_by_code(999)))
+  end
   
 end
 
