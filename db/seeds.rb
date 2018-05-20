@@ -57,7 +57,7 @@ filters=[
          {k: "sub-newsagent", a: 43},
          {k: "Piedimontes"},
          {k: "Seafood"},
-         {k: "Poultry"}
+         {k: "Poultry"},
 
          #-44-Dining Out
          {p: "curry truck", a: 44},
@@ -78,7 +78,7 @@ filters=[
          #-46-Internet
          {k: "INTERNODE", p: "intern ode", a: 46},
          {k: "INTERNODE", a: 46},
-         {k: "Aussiebroadband", a: 46}
+         {k: "Aussiebroadband", a: 46},
          
          #-47-Rates
          
@@ -132,7 +132,7 @@ filters=[
          {p: "eye care", a: 56},
          {p: "unisex hair", a: 56},
          {k: "beautiology", a: 56},
-         {k: "Gym", a: 56}
+         {k: "Gym", a: 56},
          
          #-57-Medical
          
@@ -142,7 +142,7 @@ filters=[
          {k: "cabs", a: 58},
          {k: "cab", a: 58},
          {p: "PUBLIC TRANSPORT", a: 58},
-         {k: "myki", a: 58}
+         {k: "myki", a: 58},
          
          # 59-Car Expenses
          {p: "auto & general", a: 59},
@@ -151,7 +151,7 @@ filters=[
          {k: "hyundai", a: 59},
          {p: "super cheap", a: 59},
          {k: "racv", a: 59},
-         {k: "AUTOBARN", a: 59}
+         {k: "AUTOBARN", a: 59},
 
          # 60-Entertainment
          {k: "ticketek", a: 60},
