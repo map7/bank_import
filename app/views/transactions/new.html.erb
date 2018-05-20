@@ -1,4 +1,10 @@
-<div data-controller="transactions">
-  <input data-target="transactions.file_paths" type="text">
-  <button data-action="click->transactions#file">Log</button>
-</div>
+<%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
+  <%= f.text_field :file_paths,
+  class: "transaction-input",
+    placeholder: "Enter file paths",
+    autofocus: true,
+    data: {
+      target: "transactions.file_paths"
+    },
+    autocomplete: "off" %>
+<% end %>
