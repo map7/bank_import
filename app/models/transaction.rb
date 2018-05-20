@@ -3,6 +3,17 @@ class Transaction < ApplicationRecord
   belongs_to :debit, class_name: "Account"
 
   monetize :amount_cents
+
+  def self.determine_accounts(category, desc)
+    if category == "DEBIT"
+      debit = Account.where(code: 700).first
+      credit = Filter.execute(desc)
+    else        
+      credit = Account.where(code: 700).first
+      debit = Filter.execute(desc)
+    end
+    return debit,credit
+  end
   
   def self.load(file="#{Rails.root}/test/westpac_example.qif")
     # Clear the db
@@ -14,15 +25,7 @@ class Transaction < ApplicationRecord
     qif.each do |tran|
       
       desc = (tran.memo || tran.payee)
-      
-      # Determine if it's a debit or credit
-      if tran.category == "DEBIT"
-        debit = Account.where(code: 700).first
-        credit = Filter.execute(desc)
-      else        
-        credit = Account.where(code: 700).first
-        debit = Filter.execute(desc)
-      end
+      debit,credit = self.determine_accounts(tran.category, desc)
 
       # Create transaction
       new_transaction = Transaction.new(date: tran.date,
