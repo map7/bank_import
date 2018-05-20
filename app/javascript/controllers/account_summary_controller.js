@@ -9,7 +9,7 @@ export default class extends Controller {
       .then(response =>
             response.text())
       .then(expenses => {
-        new Chartkick.PieChart("chart-1", JSON.parse(expenses))
+        new Chartkick.BarChart("chart-1", JSON.parse(expenses))
       })
 
     
