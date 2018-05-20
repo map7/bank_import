@@ -25,7 +25,7 @@ class Account < ApplicationRecord
         results << {name: acc.name, expenses: expenses}
       end
     end
-    results.map(&:values)
+    results.map(&:values).sort_by(&:second)
   end
 
   def self.remain(limit=10)
