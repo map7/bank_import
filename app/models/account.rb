@@ -16,6 +16,18 @@ class Account < ApplicationRecord
     results
   end
 
+  def self.expense_chart
+    results = []
+    Account.where("code < 700").each do |acc|
+      expenses = acc.debit_trans.sum(:amount_cents) / 100
+
+      unless expenses == 0 
+        results << {name: acc.name, expenses: expenses}
+      end
+    end
+    results.map(&:values)
+  end
+
   def self.remain(limit=10)
     sundries = Account.find_by_code(999)
     sundries.credit_trans.limit(limit).each do |tran|
