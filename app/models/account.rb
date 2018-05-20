@@ -15,5 +15,8 @@ class Account < ApplicationRecord
     end
     results
   end
-  
+
+  def self.remain
+    tp Account.find_by_code(999).credit_trans.limit(10), :description, :amount
+  end
 end
