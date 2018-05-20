@@ -4,13 +4,13 @@ class Transaction < ApplicationRecord
 
   monetize :amount_cents
 
-  def self.determine_accounts(category, desc)
-    if category == "DEBIT"
+  def self.determine_accounts(amount, desc)
+    if amount > 0
       debit = Account.where(code: 700).first
       credit = Filter.execute(desc)
     else        
-      credit = Account.where(code: 700).first
       debit = Filter.execute(desc)
+      credit = Account.where(code: 700).first
     end
     return debit,credit
   end
@@ -27,7 +27,7 @@ class Transaction < ApplicationRecord
     qif.each do |tran|
       
       desc = (tran.memo || tran.payee)
-      debit,credit = self.determine_accounts(tran.category, desc)
+      debit,credit = self.determine_accounts(tran.amount, desc)
 
       # Create transaction
       Transaction.find_or_create_by(date: tran.date,
@@ -42,11 +42,7 @@ class Transaction < ApplicationRecord
     bank = Account.find_by_code(700)
 
     trans.each do |tran|
-      if tran.debit == bank
-        debit, credit = self.determine_accounts("DEBIT", tran.description)
-      else
-        debit, credit = self.determine_accounts("CREDIT", tran.description)
-      end
+      debit, credit = self.determine_accounts(tran.amount, tran.description)
 
       tran.update_attributes({debit: debit, credit: credit})
     end
