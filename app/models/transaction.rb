@@ -26,7 +26,7 @@ class Transaction < ApplicationRecord
 
     qif.each do |tran|
       amount_cents = (tran.amount * 100)
-      amount_cents * -1 if tran.category.length > 0
+      amount_cents * -1 unless tran.category.blank?
       desc = (tran.memo || tran.payee)
       debit,credit = self.determine_accounts(tran.amount, desc)
 
