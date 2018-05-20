@@ -1,4 +1,4 @@
-<div data-controller="transactions" data-transactions-url="/account_summary"> 
+<div data-controller="transactions"> 
   <%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
     <%= f.file_field :file_paths,
     class: "transaction-input",
@@ -9,5 +9,4 @@
     <%= submit_tag("Upload") %>
   <% end %>
   <button class="destroy" data-action="transactions#destroy">Delete All</button>
-  <div id="chart-1" style="height: 300px"></div>
 </div>
