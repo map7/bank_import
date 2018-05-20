@@ -1,5 +1,5 @@
 <%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
-  <%= f.text_field :file_paths,
+  <%= f.file_field :file_paths,
   class: "transaction-input",
     placeholder: "Enter file paths",
     autofocus: true,
