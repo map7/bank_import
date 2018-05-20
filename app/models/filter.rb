@@ -10,7 +10,7 @@ class Filter < ApplicationRecord
 
     text.split().each do |token|
       Filter.all.each do |filter|
-        if token == filter.keyword
+        if token.try(:downcase) == filter.keyword.try(:downcase)
           return filter.account
         end
       end
