@@ -10,11 +10,12 @@ export default class extends Controller {
     fetch(this.data.get("url"))
       .then(response =>
             response.text())
-      .then(html => {
-        console.log(html)
+      .then(expenses => {
+        // console.log(expenses)
+        new Chartkick.PieChart("chart-1", JSON.parse(expenses))
       })
 
-    //new Chartkick.PieChart("chart-1", expenses)    
+    
   }
 
   file() {
