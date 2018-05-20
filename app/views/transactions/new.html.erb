@@ -1,4 +1,4 @@
-<div data-controller="transactions"> 
+<div data-controller="transactions" data-transactions-url="/account_summary"> 
   <%= form_with model: Transaction.new, remote: true, authenticity_token: true do |f| %>
     <%= f.file_field :file_paths,
     class: "transaction-input",
