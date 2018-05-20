@@ -40,8 +40,6 @@ class Transaction < ApplicationRecord
   end
 
   def self.refilter_common(trans)
-    bank = Account.find_by_code(700)
-
     trans.each do |tran|
       debit, credit = self.determine_accounts(tran.amount, tran.description)
 
