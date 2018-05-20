@@ -8,6 +8,17 @@
 
 require 'csv'
 
+def acc(code)
+  Account.find_by_code(code)
+end
+
+def create_filter(filter)
+  
+  Filter.find_or_create_by(keyword: filter[:k],
+                           phrase: filter[:p],
+                           account: acc(filter[:a]))
+end
+
 # Accounts seed
 CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
   # Skip any lines beginning with # as these are comments.
@@ -16,11 +27,78 @@ CSV.parse(File.read("#{Rails.root}/db/#{CHART_OF_ACCOUNTS}")) do |account|
   end
 end
 
-# Filter seed
-["BP", "CALTEX", "7-ELEVEN", "PETROL"].each do |filter_keyword|
-  unless Filter.find_by_keyword(filter_keyword)
-      petrol.filters.create(keyword: filter_keyword,
-                            account: Account.find_by_name("Petrol"))
-  end
-end
+
+filters=[
+         # 41-Petrol
+         {k: "BP", a: 41},
+         {k: "CALTEX", a: 41},
+         {k: "7-ELEVEN", a: 41},
+         {k: "PETROL", a: 41},
+         {k: "SHELL", a: 41},
+
+         # 42-Pharmacy
+         {k: "Chemist", a: 42},
+
+         # 43-Food
+         {k: "YOURGROCER", a: 43},
+         {k: "Woolworths", a: 43},
+         {p: "Hello Fresh", a: 43},
+         {p: "UNIFIED THEORY", a: 43},
+         {k: "FRUIT", a: 43},
+
+         #-44-Dining Out
+         {p: "Solito Posto", a: 44},
+         
+         #-45-Water
+         
+         #-46-Internet
+         
+         #-47-Rates
+         
+         #-48-Electricity
+         {k: "POWERSHOP", a: 48},
+         
+         #-49-Gas
+         
+         #-50-Mortgage
+         
+         #-51-Body Corporate
+         
+         #-52-Rent
+         
+         #-53-Money Owed
+         
+         #-54-Online Subscriptions
+         {k: "github.com", a: 54},
+         
+         #-55-Clothing
+         {p: "BONDS AND CO", a: 55},
+         
+         #-56-Health
+         
+         #-57-Medical
+         
+         #-58-Transport
+         {k: "UBER", a: 58},
+         {p: "PUBLIC TRANSPORT", a: 58},
+         
+         # 59-Car Expenses
+         {k: "CITYLINK", a: 59},
+
+         # 60-Entertainment
+         {k: "Village", a: 60},
+         {k: "Netflix.com", a: 60},
+
+         # 61-Technology
+         {k: "AUSPI", a: 61},
+
+         # 62-Pet Expenses
+         {k: "VETERINA", a: 62},
+
+         # 63-Bank Fees
+         {k: "Fee", a: 63},
+        ]
+
+filters.each {|filter| create_filter(filter)}
+
 
