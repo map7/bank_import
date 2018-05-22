@@ -1,6 +1,4 @@
-#source 'https://rubygems.org'
-#source "http://10.0.1.57:9292"
-source "http://gems.railscamp.local"
+source 'https://rubygems.org'
 
 #git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
