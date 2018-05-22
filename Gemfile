@@ -68,3 +68,4 @@ gem 'qif' # qif to read in bank statements
 gem 'table_print'
 gem 'money-rails'
 gem 'rspec-rails'
+gem 'ledger_gen'
