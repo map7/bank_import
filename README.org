@@ -1,29 +1,30 @@
 * README
 
+Programmed at RailsCamp 2018 Brisbane, Australia. Not safe for production, this is hacked together in a weekend exercise to learn how to filter bank statements into something useful for expense tracking.
+
 Bank Import feature to read in bank transactions from qif files and assign them to accounts.
 
-Things you may want to cover:
+Features
 - Read in transactions
 - Store in db
 - Assign to accounts
-
+- Draw a nice bar graph of expenses
+- Use StimulusJS frontend
 
 ** Ruby version
 
 2.5.1
 
-** System dependencies
-
-** Configuration
 
 ** Database creation
+: rake db:create
+: rake db:schema:load
 
 ** Database initialization
+: rake db:seed
 
 ** How to run the test suite
-
-** Services (job queues, cache servers, search engines, etc.)
+: rake
 
 ** Deployment instructions
 
-** ...
