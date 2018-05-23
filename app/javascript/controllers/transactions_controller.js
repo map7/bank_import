@@ -3,7 +3,7 @@ import Rails from "rails-ujs"
 
 export default class extends Controller {
   destroy() {
-    this.railsDelete("transactions/destroy_many");
+    this.railsDelete("/transactions/destroy_many");
   }
 
   railsDelete(url) {
