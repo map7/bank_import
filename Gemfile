@@ -53,7 +53,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
+group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
@@ -69,3 +69,4 @@ gem 'table_print'
 gem 'money-rails'
 gem 'rspec-rails'
 gem 'ledger_gen'
+gem 'highline'                  # CLI tools for reading passwords
