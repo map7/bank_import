@@ -23,6 +23,9 @@ def initialise
   # Setup dates as previous month range
   @start_date=Time.now.to_date.last_month.beginning_of_month
   @end_date=Time.now.to_date.last_month.end_of_month
+
+  # Setup the end results file
+  @transaction_file = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_westpac.qif"
 end
 
 def gather_details
@@ -52,9 +55,8 @@ def wait_for_download
 end
 
 def rename_download
-  new_filename = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_westpac.qif"
-  FileUtils.mv(new_filename, "#{new_filename}.bak_#{Time.now.to_i}") if File.exists?(new_filename)
-  FileUtils.mv("#{DOWNLOAD}", new_filename)
+  FileUtils.mv(@transaction_file, "#{@transaction_file}.bak_#{Time.now.to_i}") if File.exists?(@transaction_file)
+  FileUtils.mv("#{DOWNLOAD}", @transaction_file)
 end
 
 def download_qif
