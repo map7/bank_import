@@ -43,18 +43,6 @@ def login
   @session.click_on "Sign in"
 end
 
-def download_qif
-  @session.visit "https://banking.westpac.com.au/secure/banking/reportsandexports/exportparameters/2/"
-
-  @session.first("input#DateRange_StartDate").set(@start_date.strftime("%d/%m/%Y"))
-  @session.first("input#DateRange_EndDate").set(@end_date.strftime("%d/%m/%Y"))
-
-  @session.first("input#File_type_4").click() # Select QIF format
-
-  @session.click_on "Export"
-  wait_for_download
-end
-
 def wait_for_download
   counter = 0
   while File.exists?("#{DOWNLOAD}") == false and counter < 15
@@ -67,6 +55,19 @@ def rename_download
   new_filename = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_westpac.qif"
   FileUtils.mv(new_filename, "#{new_filename}.bak_#{Time.now.to_i}") if File.exists?(new_filename)
   FileUtils.mv("#{DOWNLOAD}", new_filename)
+end
+
+def download_qif
+  @session.visit "https://banking.westpac.com.au/secure/banking/reportsandexports/exportparameters/2/"
+
+  @session.first("input#DateRange_StartDate").set(@start_date.strftime("%d/%m/%Y"))
+  @session.first("input#DateRange_EndDate").set(@end_date.strftime("%d/%m/%Y"))
+
+  @session.first("input#File_type_4").click() # Select QIF format
+
+  @session.click_on "Export"
+  wait_for_download
+  rename_download
 end
 
 def logout
@@ -85,7 +86,6 @@ namespace :bank_download do
     if @session.has_content?("Westpac")
       login
       download_qif
-      rename_download      
       logout            
     else
       puts ":( no tagline found, possibly something's broken"
