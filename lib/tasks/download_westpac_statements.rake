@@ -84,6 +84,11 @@ def logout
   puts "You have been signed out" if @session.has_content?("Signed out of Westpac Live")
 end
 
+def load_transactions
+  puts "Loading #{@transaction_file} into Bank Import"
+  Transaction.load(@transaction_file) if File.exists? @transaction_file
+end
+
 namespace :bank_download do
   desc "Download Westpac bank statements"
   task :westpac => :environment do
@@ -95,8 +100,8 @@ namespace :bank_download do
     if @session.has_content?("Westpac")
       login
       download_qif
-      logout            
-      Transaction.load(@transaction_file)
+      logout
+      load_transactions
     else
       puts ":( no tagline found, possibly something's broken"
       exit(-1)
@@ -106,6 +111,6 @@ namespace :bank_download do
   desc "Load the already downloaded file into Bank Import"
   task :load => :environment do
     initialise
-    Transaction.load(@transaction_file) if File.exists? @transaction_file
+    load_transactions
   end
 end
