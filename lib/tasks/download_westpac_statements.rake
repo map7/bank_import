@@ -89,9 +89,16 @@ namespace :bank_download do
       login
       download_qif
       logout            
+      Transaction.load(@transaction_file)
     else
       puts ":( no tagline found, possibly something's broken"
       exit(-1)
     end
+  end
+
+  desc "Load the already downloaded file into Bank Import"
+  task :load => :environment do
+    initialise
+    Transaction.load(@transaction_file) if File.exists? @transaction_file
   end
 end
