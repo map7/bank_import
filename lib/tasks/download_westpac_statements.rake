@@ -45,7 +45,13 @@ namespace :bank_download do
 
       session.click_on "Export"
 
-      sleep 5                   # Wait to download
+      sleep 2                   # Wait to download
+
+      session.click_on "Sign Out"
+
+      if session.has_content?("Signed out of Westpac Live")
+        puts "You have been signed out"
+      end
       
     else
       puts ":( no tagline found, possibly something's broken"
