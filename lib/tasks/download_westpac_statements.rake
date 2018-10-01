@@ -3,7 +3,14 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'highline'
 
+DOWNLOAD_DIR="#{ENV['HOME']}/Downloads"
+DOWNLOAD="#{DOWNLOAD_DIR}/Data.qif"
+BAK="#{DOWNLOAD_DIR}/Data.qif.bak_#{Time.now.to_i}"
+
 def initialise
+  # Backup the old file
+  FileUtils.mv "#{DOWNLOAD}","#{BAK}" if File.exists? "#{DOWNLOAD}"
+  
   # Initialise Capybara
   Capybara.register_driver :chrome do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
@@ -57,6 +64,9 @@ end
 namespace :bank_download do
   desc "Download Westpac bank statements"
   task :westpac => :environment do
+
+    
+
     initialise
     gather_details
 
