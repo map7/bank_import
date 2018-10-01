@@ -20,12 +20,19 @@ def initialise
   # Initialise Highline for asking questions
   @cli=HighLine.new
 
-  # Setup dates as previous month range
-  @start_date=Time.now.to_date.last_month.beginning_of_month
+  period=@cli.ask("What date range (month/year)?") {|q| q.default = "month"}
+
   @end_date=Time.now.to_date.last_month.end_of_month
 
-  # Setup the end results file
-  @transaction_file = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_westpac.qif"
+  if period=~/y/
+    # Setup dates as previous year range
+    @start_date=Time.now.to_date.last_month.last_year.beginning_of_month
+    @transaction_file = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_to_#{@start_date.strftime("%Y_%B")}_westpac.qif"
+  else
+    # Setup dates as previous month range
+    @start_date=Time.now.to_date.last_month.beginning_of_month
+    @transaction_file = "#{DOWNLOAD_DIR}/#{@start_date.strftime("%Y_%B")}_westpac.qif"
+  end
 end
 
 def gather_details
