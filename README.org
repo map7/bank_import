@@ -28,3 +28,37 @@ Features
 
 ** Deployment instructions
 
+** Re-filter
+
+Currently to re-filter you have to do this through the rails console
+
+To re-filter all
+
+1. Add a new filter to;
+   : db/seeds.db
+2. Optionally add any new accounts to;
+   : db/chart_of_accounts.csv
+3. Run the seed
+   : rake db:seed
+4. Run
+   : rails c
+   : Transaction.refilter
+
+
+** Look at what's in sundries
+
+1. Use rails console
+   : rails c
+2. Get sundries account
+   : a=Account.find_by_code(999)
+3. List all debit transactions
+   : a.debit_trans
+4. List all credit transactions
+   : a.credit_trans
+5. Display it nicely in a table
+   
+   Sort by description and pick filters to match the most
+   : tp a.debit_trans.order(:description), {:date =>{:width=>14}}, {:description =>{:width => 50}}, :amount
+
+   Sort by amount and pick filters to match the largest amounts
+   : tp a.debit_trans.order("amount_cents DESC"), {:date =>{:width=>14}}, {:description =>{:width => 50}}, :amount
