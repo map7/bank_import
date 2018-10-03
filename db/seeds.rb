@@ -71,6 +71,10 @@ filters=[
          {p: "khao san road", a: 44},
          {k: "Menulog", a: 44},
          {p: "healthy life", a: 44},
+         {k: "GOODOVENING", a: 44},
+         {p: "SHERLOCK HOLMES", a: 44},
+         {p: "BIG BOYZ PIZZA", a: 44},
+         {p: "OLINDA TEA HOUSE", a: 44},
          
          #-45-Water
          {k: "water", a: 45},
@@ -89,6 +93,7 @@ filters=[
          {p: "ORIGIN EN", a: 49},
          
          #-50-Mortgage
+         {k: "DR153236742", a: 50},
          
          #-51-Body Corporate
          {p: "Property r", a: 51},
@@ -112,8 +117,10 @@ filters=[
          {k: "cue", a: 55},
          {k: "donquijote", a: 55},
          {p: "BONDS AND CO", a: 55},
+         {p: "BONDS ONLINE", a: 55},
          
          #-56-Health
+         {k: "physio", a: 56},
          {k: "dr", a: 56},
          {k: "dental", a: 56},
          {k: "pharmacy", a: 56},
@@ -152,6 +159,8 @@ filters=[
          {p: "super cheap", a: 59},
          {k: "racv", a: 59},
          {k: "AUTOBARN", a: 59},
+         {k: "AUTOMOTIVE", a: 59},
+         {k: "Subaru", a: 59},
 
          # 60-Entertainment
          {k: "ticketek", a: 60},
@@ -193,11 +202,13 @@ filters=[
          # 62-Pet Expenses
          {k: "VETERINA", a: 62},
          {k: "VETERINARY", a: 62},
+         {k: "PETSTOCK", a: 62},
 
          # 63-Bank Fees
          {k: "Fee", a: 63},
 
          # 64-Holiday
+         {k: "cottages", a: 64},
          {p: "CARAVAN PK", a: 64},
          {k: "lodge", a: 64},
          {k: "airways", a: 64},
@@ -209,15 +220,20 @@ filters=[
          {p: "Dan murphys", a: 65},
          {p: "1st choice", a: 65},
          {p: "prince wine", a: 65},
-         {k: "wines", a: 65},
+         {k: "wine", a: 65},
          {k: "cellars", a: 65},
          {k: "cellar", a: 65},
+         {k: "tahbilk", a: 65},
+         {p: "BLUE PYRENEES", a: 65},
+         {k: "vineyards", a: 65},
 
          # 66,   Home Improvements and Tools
+         {p: "Solar Service", a: 66},
          {k: "Bunnings", a: 66},
          {p: "Environment shop", a: 66},
 
          # 67, Pub
+         {k: "BREWERY", a: 67},
          {k: "tap", a: 67},
          {k: "brewing", a: 67},
          {k: "pub", a: 67},
@@ -230,9 +246,24 @@ filters=[
          # 68, Insurance
          {k: "RAFO", a: 68},
          {k: "insurance", a: 68},
+         {p: "GENERAL INS HOME", a: 68},
 
          # 69, Paypal
          {k: "paypal", a: 69},
+
+         # 70, Rates
+         {k: "BodyCorp", a: 70},
+         {p: "Body Corp", a: 70},
+         {p: "COUNCIL AU", a: 70},
+
+         # 71, Bike
+         {k: "Cycles", a: 71},
+
+         # 997, ATM-Cash widthdrawl
+         {k: "ATM", a: 997},
+
+         # 998, Transfers
+         {k: "TFR", a: 998},
         ]
 
 filters.each {|filter| create_filter(filter)}
