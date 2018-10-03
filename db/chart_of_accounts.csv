@@ -40,6 +40,8 @@
 67,   Pub
 68,   Insurance
 69,   paypal
+70,   Rates
+71,   Bike
 
 # BALANCE SHEET ASSETS
 # (Accounts are at the start of the range)
@@ -82,5 +84,7 @@
 #
 # UNASSIGNED EXPENSES
 #
+997, ATM-cash withdrawl
+998, Transfers
 999, Sundries
 
